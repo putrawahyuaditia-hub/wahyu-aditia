@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentor Moz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f9fafb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loading-text {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #7e22ce;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+        
+        /* Animasi fade in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Logo Animation */
+        .logo-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: logoAppear 1s forwards;
+        }
+        
+        @keyframes logoAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Content Images Animation */
+        .content-image {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .content-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .content-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Text Animation */
+        .text-animate {
+            opacity: 0;
+            animation: textFadeIn 1s forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Staggered animation for content sections */
+        .content-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Contact section animation */
+        .contact-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .contact-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Footer animation */
+        .footer-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .footer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Gradient background animation */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">welcome to MOZ</div>
+    </div>
+
+    <div class="container mx-auto px-4 py-10 max-w-4xl">
+        <!-- Foto Logo di Tengah -->
+        <div class="text-center mb-8 fade-in">
+            <img src="tentor moz.png" alt="Logo Tentor Moz" class="logo-image mx-auto mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 text-animate">TENTOR MOZ</h1>
+        </div>
+        
+        <!-- Teks di bawah logo -->
+        <div class="text-center mb-10 fade-in">
+            <p class="text-gray-900 text-3xl font-bold text-animate" style="animation-delay: 0.7s">MOZ</p>
+            <p class="text-gray-600 text-lg text-animate" style="animation-delay: 0.9s">Mathematics Of Zen</p>
+            <p class="text-gray-600 text-lg text-animate" style="animation-delay: 1.1s">Bravo Moz</p>
+        </div>
+        
+        <!-- 5 Foto dengan Teks di Bawahnya -->
+        <div class="space-y-12 mb-16">
+            <!-- Foto 1 -->
+            <div class="text-center content-section">
+                <img src="belajar 1.jpeg" alt="Kelas Belajar" class="content-image rounded-xl w-full max-w-3xl mx-auto">
+                <div class="mt-6 max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-3 text-gray-800">suasa belajar</h2>
+                    <p class="text-gray-600">kita disitu diajar kan Banyak cara yg mungkin belum kita ketahui disekolah dan banyak cara cepatnya dan trik yg akan disalur kan oleh tentor kita dan jika ada yg masih belum paham dengan penjelasan tentor moz maka akan diulang lagi soal tersebut sampai anak itu bisa memahami</p>
+                </div>
+            </div>
+            
+            <!-- Foto 2 -->
+            <div class="text-center content-section">
+                <img src="belajar.jpeg" alt="Sesi Tutor" class="content-image rounded-xl w-full max-w-3xl mx-auto">
+                <div class="mt-6 max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-3 text-gray-800">belajar santai tapi fokus</h2>
+                    <p class="text-gray-600">kita disini bukan hanya belajar ada juga canda tawanya biar tidak terlalu tertekan jika dikasih tugas jadi intinya kita disini belajar santai namun tetap fokus dengan soal yang diberikan </p>
+                </div>
+            </div>
+            
+            <!-- Foto 3 -->
+            <div class="text-center content-section">
+                <img src="kebersamaan solidaritas.jpeg" alt="Fasilitas" class="content-image rounded-xl w-full max-w-3xl mx-auto">
+                <div class="mt-6 max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-3 text-gray-800">kebersamaan/solidaritas</h2>
+                    <p class="text-gray-600">disini kita bukan diajar kan cuman mengerjakan soal saja melain kan juga kebersamaan/solidaritas meskipun kita beda kelas kita saling mengajar kan satu sama lain jadi tidak ada yg tertinggal dalam sebuah soal yang diberikan</p>
+                </div>
+            </div>
+            
+            <!-- Foto 4 -->
+            <div class="text-center content-section">
+                <img src="hiling 1.jpeg" alt="Program Les" class="content-image rounded-xl w-full max-w-3xl mx-auto">
+                <div class="mt-6 max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-3 text-gray-800">acara hiling/belajardi luar</h2>
+                    <p class="text-gray-600">disini juga ada acara hiling/belajar diluar disetiap akhir ujian kenaikan kelas semata mata untuk reflesing setelah ujian dan belajar menganal lingkungan luar biar tidak jenuh belajar didalam ruwangan</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kontak -->
+        <div class="bg-white rounded-xl shadow-md p-8 mb-10 contact-section">
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold mb-6 text-gray-800">sosial media/nomer yg bisa dihubungi</h2>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-purple-600 text-xl mr-3"></i>
+                        <a href="tel:+6283830711079" class="text-gray-700 hover:text-purple-600 transition font-medium">+6283830711079</a>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <i class="fab fa-instagram text-purple-600 text-xl mr-3"></i>
+                        <a href="https://www.instagram.com/lbbmoz?igsh=OW1taGI3cTF0OTQy" target="_blank" class="text-gray-700 hover:text-purple-600 transition font-medium">@LBB MOZ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Teks penutup -->
+        <div class="text-center footer-section">
+            <p class="text-gray-600 italic text-lg">"tidak ada anak yang bodoh melainkan anak yang malas untuk belajar"</p>
+            <h2 class="text-gray-600 italic text-lg mt-2">jadi tunggu apa lagi buar join di MOZ</h2>
+        </div>
+    </div>
+
+    <script>
+        // Hide loading screen when page is loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+                
+                // Activate fade-in elements
+                const fadeElements = document.querySelectorAll('.fade-in');
+                fadeElements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('active');
+                    }, index * 200);
+                });
+                
+                // Setup Intersection Observer for content sections
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Animate images inside the section
+                            const images = entry.target.querySelectorAll('.content-image');
+                            images.forEach((img, imgIndex) => {
+                                setTimeout(() => {
+                                    img.classList.add('visible');
+                                }, imgIndex * 100);
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observe all content sections
+                const contentSections = document.querySelectorAll('.content-section');
+                contentSections.forEach(section => {
+                    observer.observe(section);
+                });
+                
+                // Observe contact section
+                const contactSection = document.querySelector('.contact-section');
+                if (contactSection) {
+                    observer.observe(contactSection);
+                }
+                
+                // Observe footer section
+                const footerSection = document.querySelector('.footer-section');
+                if (footerSection) {
+                    observer.observe(footerSection);
+                }
+            }, 1500); // Show loading screen for 1.5 seconds
+        });
+    </script>
+</body>
+</html>
